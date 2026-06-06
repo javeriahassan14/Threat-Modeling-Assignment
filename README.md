@@ -1,3 +1,5 @@
+## Data Flow Diagram
+
 ```mermaid
 flowchart LR
 
@@ -65,4 +67,30 @@ Attacker -. T8 DB Credential Theft .-> FS
 FS -. Read Credentials .-> DB
 
 FS -. Webshell RCE .-> WPAdmin
+```
+## Attack Flow Diagram
+
+```mermaid
+flowchart TD
+
+A[Reconnaissance]
+B[Enumerate WordPress Version]
+C[Identify Vulnerable Plugin]
+D[Exploit Plugin Vulnerability]
+E[Remote Code Execution]
+F[Install Webshell]
+G[Read wp-config]
+H[Extract Database Credentials]
+I[Access MySQL Database]
+J[Exfiltrate Customer Data]
+
+A --> B
+B --> C
+C --> D
+D --> E
+E --> F
+F --> G
+G --> H
+H --> I
+I --> J
 ```
